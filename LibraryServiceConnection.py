@@ -27,7 +27,7 @@ class LibraryServiceConnection:
             print(xml_string)
             return xml_string
         else:
-            print(f"Метод '{method_name}' не найден")
+            print(f"Method '{method_name}' not found")
 
     def get_all(self):
         self.client.service.GetAllBooks()
@@ -48,6 +48,6 @@ class LibraryServiceConnection:
                 'genre': genre,
                 'price': price,
                 'publish_date': publish_date,
-                'description': description}
-
+                'description': description
+                }
         self.client.service.PostBook(book)
