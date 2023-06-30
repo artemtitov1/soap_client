@@ -1,16 +1,22 @@
+import tkinter as tk
 import xml.etree.ElementTree as Et
+from Model.Book import Book
 
 
-class Book(object):
-    def __init__(self, id, author, title, genre,
-                 price, publish_date, description):
-        self.id = id
-        self.author = author
-        self.title = title
-        self.genre = genre
-        self.price = price
-        self.publish_date = publish_date
-        self.description = description
+class BookContainer(tk.Frame):
+    def __init__(self, master, books):
+        super().__init__(master, padx=10, pady=10)
+        self.books = books
+
+    def display_books_container(self):
+        for row, book in enumerate(self.books):
+            title_label = tk.Label(self, text=book.title)
+            title_label.grid(row=row, column=0, sticky='w')
+
+            author_label = tk.Label(self, text=book.author, fg="grey")
+            author_label.grid(row=row, column=1, sticky='w')
+
+            self.pack()
 
 
 def deseriazile_books_from_xml(xml):

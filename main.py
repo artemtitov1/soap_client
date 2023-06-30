@@ -1,6 +1,4 @@
-from LibraryServiceConnection import LibraryServiceConnection
-from Book import deseriazile_books_from_xml
-from Window import Window
+from UI.Window import Window
 
 # test object
 book = {
@@ -13,12 +11,5 @@ book = {
     'description': 'description'
 }
 
-conn = LibraryServiceConnection()
-
-xml = conn.make_request("post_book",
-                        book)
-
-books = deseriazile_books_from_xml(xml)
-
-window = Window(books)
+window = Window()
 window.mainloop()
